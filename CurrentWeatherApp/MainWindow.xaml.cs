@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -34,12 +35,24 @@ namespace CurrentWeatherApp
         /// <summary>
         /// Get data from API
         /// </summary>
-        private static WeatherData getData()
+        /// <param name="locationWoeid"></param>
+        private static WeatherData getData(long locationWoeid)
         {
             WebClient client = new WebClient();
-            string str = client.DownloadString("https://www.metaweather.com/api/location/2487956/");
+            var str = client.DownloadString("https://www.metaweather.com/api/location/" + locationWoeid);
             WeatherData weatherData = JsonConvert.DeserializeObject<WeatherData>(str);
             return weatherData;
+        }
+        /// <summary>
+        /// Get location form API
+        /// </summary>
+        /// <param name="inputText"></param>
+        private static long getLocation(string inputText)
+        {
+            WebClient client = new WebClient();
+            string str = client.DownloadString("https://www.metaweather.com/api/location/search/?query=" + inputText);
+            var locationData = JsonConvert.DeserializeObject<List<LocationData>>(str);
+            return locationData[0].woeid;
         }
         /// <summary>
         /// Update controls data.
@@ -61,7 +74,8 @@ namespace CurrentWeatherApp
             try
             {
                 string inputText = inputTextbox.Text;
-                this.currentData = getData();
+                long locationWoeid = getLocation(inputText);
+                this.currentData = getData(locationWoeid);
                 dataUpdate();
             }
             catch

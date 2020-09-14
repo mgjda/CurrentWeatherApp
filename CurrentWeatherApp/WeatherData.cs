@@ -6,6 +6,6 @@ namespace CurrentWeatherApp
     {
         public IList<ConsolidatedWeather> consolidated_weather { get; set; }
         public string title { get; set; }
-        public int woeid { get; set; }
+        public long woeid { get; set; }
     }
 }

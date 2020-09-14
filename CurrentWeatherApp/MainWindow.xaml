@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="604.559" Width="648.177">
     <Grid HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="631" Margin="0,0,-2,0">
-        <TextBox x:Name="inputTextbox" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" TextWrapping="Wrap" Text="Warsaw" VerticalAlignment="Top" Width="402"/>
+        <TextBox x:Name="inputTextbox" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" TextWrapping="Wrap" Text="san" VerticalAlignment="Top" Width="402"/>
         <Button x:Name="inputButtom" Content="Button" HorizontalAlignment="Left" Margin="417,10,0,0" VerticalAlignment="Top" Width="207" Height="42" Click="inputButtom_Click"/>
         <Grid HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="614" Margin="10,70,0,-70">
             <Label x:Name="locationNameLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="46" Width="604" FontSize="24"/>
