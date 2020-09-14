@@ -5,22 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrentWeatherApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="604.559" Width="648.177">
-    <Grid HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="631" Margin="0,0,-2,0">
-        <TextBox x:Name="inputTextbox" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" TextWrapping="Wrap" Text="san" VerticalAlignment="Top" Width="402"/>
-        <Button x:Name="inputButtom" Content="Button" HorizontalAlignment="Left" Margin="417,10,0,0" VerticalAlignment="Top" Width="207" Height="42" Click="inputButtom_Click"/>
-        <Grid HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="614" Margin="10,70,0,-70">
-            <Label x:Name="locationNameLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="46" Width="604" FontSize="24"/>
+        Title="Current Weather" Height="550" Width="400
+        " WindowStartupLocation="CenterScreen" MinWidth="400" MinHeight="550" MaxWidth="400" MaxHeight="550" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+    <Grid HorizontalAlignment="Left" Width="390" Margin="0,-10,0,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="inputTextbox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="21,10,0,0" TextWrapping="Wrap" Text="Warsaw" VerticalAlignment="Top" Height="35" Width="283" KeyUp="inputTextbox_KeyUp" UseLayoutRounding="False" FontSize="20" FontFamily="Lato" Foreground="#FF444444">
+        </TextBox>
+        <Button x:Name="inputButton" Content="ok" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="52" Height="35" Click="inputButton_Click" FontFamily="Lato" FontSize="20" BorderBrush="#FFABADB3" Foreground="#FF444444" Background="#FFE8E8E8"/>
+        <Label x:Name="locationNameLabel" Content="Label" Margin="10,50,0,0" Height="46" Width="370" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="Lato"/>
+        <Grid HorizontalAlignment="Center" Height="160" VerticalAlignment="Top" Width="160" Margin="118,127,112,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image x:Name="weatherImage" RenderTransformOrigin="0.511,0.506" Margin="10"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="416" VerticalAlignment="Top" Width="307" Margin="317,141,0,-491">
-            <Image x:Name="weatherImage" HorizontalAlignment="Left" Height="287" Margin="10,10,0,0" VerticalAlignment="Top" Width="287"/>
+        <Grid HorizontalAlignment="Left" Height="228" VerticalAlignment="Top" Width="370" Margin="10,292,0,0">
+            <Label x:Name="tempLabel" Content="Label" HorizontalAlignment="Left" Margin="43,0,0,0" VerticalAlignment="Top" Height="61" Width="282" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Lato"/>
+            <Label x:Name="minTempLabel" Content="Label" HorizontalAlignment="Left" Margin="45,74,0,0" VerticalAlignment="Top" Height="50" Width="140" FontSize="16" HorizontalContentAlignment="Center" FontFamily="Lato" Foreground="#FF444444"/>
+            <Label x:Name="maxTempLabel" Content="Label" HorizontalAlignment="Left" Margin="185,74,0,0" VerticalAlignment="Top" Height="50" Width="140" FontSize="16" HorizontalContentAlignment="Center" FontFamily="Lato" Foreground="#FF444444"/>
+            <Label x:Name="pressureLabel" Content="Label" HorizontalAlignment="Left" Margin="45,168,0,0" VerticalAlignment="Top" Height="50" Width="116" FontSize="18" HorizontalContentAlignment="Center" FontFamily="Lato"/>
+            <Label x:Name="humidityLabel" Content="Label" HorizontalAlignment="Left" Margin="217,168,0,0" VerticalAlignment="Top" Height="50" Width="96" FontSize="18" HorizontalContentAlignment="Center" FontFamily="Lato"/>
+            <Label x:Name="typeLabel" Content="Label" HorizontalAlignment="Center" Margin="86,45,86,0" VerticalAlignment="Top" Width="198" HorizontalContentAlignment="Center" FontFamily="Lato" Foreground="#FF444444"/>
+            <Label Content="pressure" HorizontalAlignment="Left" Margin="45,144,0,0" VerticalAlignment="Top" FontFamily="Lato" Width="116" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF919191"/>
+            <Label Content="humidity" HorizontalAlignment="Left" Margin="217,144,0,0" VerticalAlignment="Top" FontFamily="Lato" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF919191"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="172,129,0,0" Stroke="Gray" VerticalAlignment="Top" Width="30"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="416" VerticalAlignment="Top" Width="302" Margin="10,141,0,-491">
-            <Label x:Name="tempLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="282" FontSize="20"/>
-            <Label x:Name="minTempLabel" Content="Label" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Height="50" Width="140" FontSize="20"/>
-            <Label x:Name="maxTempLabel" Content="Label" HorizontalAlignment="Left" Margin="152,65,0,0" VerticalAlignment="Top" Height="50" Width="140" FontSize="20"/>
-            <Label x:Name="pressureLabel" Content="Label" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Height="50" Width="282" FontSize="20"/>
-            <Label x:Name="humidityLabel" Content="Label" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="50" Width="282" FontSize="20"/>
-        </Grid>
+        <Label x:Name="dateLabel" Content="01.01.1990" Margin="10,83,0,0" Height="39" Width="370" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Lato" Foreground="#FF444444"/>
     </Grid>
 </Window>

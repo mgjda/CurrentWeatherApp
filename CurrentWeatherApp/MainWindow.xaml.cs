@@ -16,6 +16,17 @@ namespace CurrentWeatherApp
         public MainWindow()
         {
             InitializeComponent();
+            initData();
+        }
+        /// <summary>
+        /// Initialize default values
+        /// </summary>
+        private void initData()
+        {
+            // Default woid, Warsaw
+            const long defaultWoid = 523920;
+            this.currentData = getData(defaultWoid);
+            dataUpdate();
         }
         /// <summary>
         /// Get image form API
@@ -60,16 +71,17 @@ namespace CurrentWeatherApp
         private void dataUpdate()
         {
             locationNameLabel.Content = currentData.title;
-            tempLabel.Content = currentData.consolidated_weather[0].the_temp;
-            minTempLabel.Content = currentData.consolidated_weather[0].min_temp;
-            maxTempLabel.Content = currentData.consolidated_weather[0].max_temp;
-            maxTempLabel.Content = currentData.consolidated_weather[0].max_temp;
-            pressureLabel.Content = currentData.consolidated_weather[0].air_pressure;
-            humidityLabel.Content = currentData.consolidated_weather[0].humidity;
+            dateLabel.Content = currentData.consolidated_weather[0].applicable_date;
+            tempLabel.Content = String.Format("{0:0}", currentData.consolidated_weather[0].the_temp) + "°C";
+            typeLabel.Content = currentData.consolidated_weather[0].weather_state_name;
+            minTempLabel.Content = "l: " + String.Format("{0:0}", currentData.consolidated_weather[0].min_temp) + "°C";
+            maxTempLabel.Content = "h: " + String.Format("{0:0}", currentData.consolidated_weather[0].max_temp) + "°C";
+            pressureLabel.Content = currentData.consolidated_weather[0].air_pressure + " hPa";
+            humidityLabel.Content = currentData.consolidated_weather[0].humidity + "%";
             weatherImage.Source = getWeatherImage();
         }
 
-        private void inputButtom_Click(object sender, RoutedEventArgs e)
+        private void inputButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -84,5 +96,24 @@ namespace CurrentWeatherApp
             }
             
         }
+
+        private void inputTextbox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == System.Windows.Input.Key.Enter)
+            {
+                try
+                {
+                    string inputText = inputTextbox.Text;
+                    long locationWoeid = getLocation(inputText);
+                    this.currentData = getData(locationWoeid);
+                    dataUpdate();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
     }
 }
