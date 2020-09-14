@@ -1,0 +1,26 @@
+﻿<Window x:Class="CurrentWeatherApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CurrentWeatherApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="604.559" Width="648.177">
+    <Grid HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="631" Margin="0,0,-2,0">
+        <TextBox x:Name="inputTextbox" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" TextWrapping="Wrap" Text="Warsaw" VerticalAlignment="Top" Width="402"/>
+        <Button x:Name="inputButtom" Content="Button" HorizontalAlignment="Left" Margin="417,10,0,0" VerticalAlignment="Top" Width="207" Height="42" Click="inputButtom_Click"/>
+        <Grid HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="614" Margin="10,70,0,-70">
+            <Label x:Name="locationNameLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="46" Width="604" FontSize="24"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="416" VerticalAlignment="Top" Width="307" Margin="317,141,0,-491">
+            <Image x:Name="weatherImage" HorizontalAlignment="Left" Height="287" Margin="10,10,0,0" VerticalAlignment="Top" Width="287"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="416" VerticalAlignment="Top" Width="302" Margin="10,141,0,-491">
+            <Label x:Name="tempLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="282" FontSize="20"/>
+            <Label x:Name="minTempLabel" Content="Label" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Height="50" Width="140" FontSize="20"/>
+            <Label x:Name="maxTempLabel" Content="Label" HorizontalAlignment="Left" Margin="152,65,0,0" VerticalAlignment="Top" Height="50" Width="140" FontSize="20"/>
+            <Label x:Name="pressureLabel" Content="Label" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Height="50" Width="282" FontSize="20"/>
+            <Label x:Name="humidityLabel" Content="Label" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="50" Width="282" FontSize="20"/>
+        </Grid>
+    </Grid>
+</Window>
